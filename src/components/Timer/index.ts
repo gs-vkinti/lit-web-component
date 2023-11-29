@@ -11,9 +11,12 @@ export class TimerComponent extends LitElement {
   }
 
   @state()
-  private counter: any = "00:00";
+  private counter: number = 0;
 
   @property({ type: Number }) minutes = 10;
+
+  @property() ob = {};
+  @property() onClickTime = () => {};
 
   startInterval() {
     this.timerId = setInterval(() => {
@@ -44,6 +47,8 @@ export class TimerComponent extends LitElement {
   }
 
   render() {
-    return html`<div>Timer : ${this.formatTime()}</div> `;
+    return html`<div @click=${this.onClickTime}>
+      Timer : ${this.formatTime()}
+    </div> `;
   }
 }

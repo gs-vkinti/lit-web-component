@@ -1,5 +1,5 @@
 import { html, css, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 
 @customElement("lit-web-component")
 export class LitWebComponent extends LitElement {
@@ -15,12 +15,20 @@ export class LitWebComponent extends LitElement {
 
   @property({ type: Number }) counter = 5;
 
+  @state() private ob = {
+    name: "krishna",
+  };
+
   __increment() {
     this.counter < 10 && (this.counter += 1);
   }
 
   __decrement() {
     this.counter > 1 && (this.counter -= 1);
+  }
+
+  onClickTime() {
+    alert("Clicked on time");
   }
 
   render() {
@@ -30,7 +38,14 @@ export class LitWebComponent extends LitElement {
       <button @click=${this.__increment}>increment</button>
       <button @click=${this.__decrement}>decrement</button>
 
-      <div><timer-component minutes=${5}> </timer-component></div>
+      <div>
+        <timer-component
+          minutes=${5}
+          .ob=${this.ob}
+          .onClickTime=${this.onClickTime}
+        >
+        </timer-component>
+      </div>
     `;
   }
 }
