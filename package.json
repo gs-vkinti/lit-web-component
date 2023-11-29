@@ -3,13 +3,17 @@
   "description": "Webcomponent lit-web-component following open-wc recommendations",
   "license": "MIT",
   "author": "krishna",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
   "exports": {
     ".": "./dist/src/index.js",
     "./lit-web-component.js": "./dist/src/lit-web-component.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gs-vkinti/lit-web-component"
   },
   "scripts": {
     "analyze": "cem analyze --litelement",
@@ -27,5 +31,8 @@
     "tslib": "^2.3.1",
     "typescript": "^4.5.2"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "publishConfig": {
+    "access": "public"
+  }
 }
